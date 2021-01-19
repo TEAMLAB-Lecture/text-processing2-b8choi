@@ -25,7 +25,7 @@ def digits_to_words(input_string):
 
 
 def to_camel_case(underscore_str):
-    words = underscore_str.split('_')
+    words = underscore_str.lower().split('_')
 
     camelcase_str = words[0]
     for word in words[1:]:
