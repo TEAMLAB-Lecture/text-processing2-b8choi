@@ -32,9 +32,11 @@ def to_camel_case(underscore_str):
             tmp.append(word)
     words = tmp
 
-    camelcase_str = words[0].lower()
-    for word in words[1:]:
-        word = word[0].upper() + word[1:].lower()
-        camelcase_str += word
+    camelcase_str = words[0]
+    if len(words) > 1:
+        camelcase_str = camelcase_str.lower()
+        for word in words[1:]:
+            word = word[0].upper() + word[1:].lower()
+            camelcase_str += word
 
     return camelcase_str
