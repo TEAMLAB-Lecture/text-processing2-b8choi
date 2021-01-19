@@ -11,7 +11,7 @@ def digits_to_words(input_string):
     for c in input_string:
         if c in numbers:
             digit_string += names[int(c)] + ' '
-    digit_string.strip()
+    digit_string = digit_string.strip()
 
     return digit_string
 
@@ -26,11 +26,15 @@ def digits_to_words(input_string):
 
 def to_camel_case(underscore_str):
     words = underscore_str.lower().split('_')
+    tmp = []
+    for word in words:
+        if word != '':
+            tmp.append(word)
+    words = tmp
 
     camelcase_str = words[0]
     for word in words[1:]:
-        if word != '':
-            word = word[0].upper() + word[1:]
-            camelcase_str += word
+        word = word[0].upper() + word[1:]
+        camelcase_str += word
 
     return camelcase_str
